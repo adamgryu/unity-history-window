@@ -2,6 +2,8 @@
 
 This is a fork of [Unity Selection History Window](https://github.com/acoppes/unity-history-window) that updates the visual style to match modern Unity better. It also updates some outdated APIs and adds forward and backward buttons.
 
+![Alt text](screenshots/new.png?raw=true "New Look")
+
 # Unity Selection History Window
 
 This is a small plugin that keeps a history of the Unity's Editor object selection (it stores in the background) and displays it in a Window to easily access it. 
