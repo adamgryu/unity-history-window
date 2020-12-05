@@ -1,0 +1,13 @@
+{
+  "name": "com.adamgryu.selectionhistoryupdated",
+  "displayName": "Selection History Updated",
+  "version": "1.0.0",
+  "unity": "2019.1",
+  "description": "Forked from https://github.com/acoppes/unity-history-window",
+  "keywords": [
+    "ui",
+    "tools",
+    "selection",
+    "history"
+  ],
+}
