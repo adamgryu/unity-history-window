@@ -20,17 +20,7 @@ It is really useful when editing stuff and following a link to an object referen
 
 # Install using UPM
 
-Just open Unity Package Manager and select add package from git URL and add this `git@github.com:acoppes/unity-history-window.git#upm-package-1.0.2`
-
-Or add it manually to the `manifest.json`, like this:
-
-```
-  "dependencies": {
-    "com.gemserk.selectionhistory": "git+https://git@github.com/acoppes/unity-history-window.git#upm-package-1.0.2",
-    ...
-  }
-```
- 
+Just open Unity Package Manager and select add package from git URL and add this `git+https://git@github.com/adamgryu/unity-history-window-updated.git#master`
 
 # Download 
 
