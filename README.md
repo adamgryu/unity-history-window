@@ -1,12 +1,12 @@
+# Modern Fork:
+
+This fork updates the visual style to match modern Unity better. It also updates some outdated APIs and adds forward and backward buttons.
+
 # Unity Selection History Window
 
 This is a small plugin that keeps a history of the Unity's Editor object selection (it stores in the background) and displays it in a Window to easily access it. 
 
 It is really useful when editing stuff and following a link to an object reference to see some details and then go back to previous selection.
-
-# FORK:
-
-This fork updates the visual style to match modern Unity better. It also updates some outdated APIs and adds forward and backward buttons.
 
 # Features
 
