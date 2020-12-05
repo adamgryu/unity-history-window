@@ -1,6 +1,6 @@
-# Modern Fork:
+# Modernized Fork:
 
-This fork updates the visual style to match modern Unity better. It also updates some outdated APIs and adds forward and backward buttons.
+This is a fork of [Unity Selection History Window](https://github.com/acoppes/unity-history-window) that updates the visual style to match modern Unity better. It also updates some outdated APIs and adds forward and backward buttons.
 
 # Unity Selection History Window
 
