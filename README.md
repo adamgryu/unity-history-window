@@ -20,7 +20,8 @@ It is really useful when editing stuff and following a link to an object referen
 
 # Install using UPM
 
-Just open Unity Package Manager and select add package from git URL and add this `git+https://git@github.com/adamgryu/unity-history-window-updated.git#master`
+Just open Unity Package Manager and select add package from git URL and add this
+`git+https://git@github.com/adamgryu/unity-history-window-updated.git?path=/Assets/Gemserk.SelectionHistory#everything`
 
 # Download 
 
