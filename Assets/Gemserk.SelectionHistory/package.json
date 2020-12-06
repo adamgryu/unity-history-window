@@ -1,10 +1,9 @@
 {
-  "name": "com.gemserk.selectionhistory",
-  "version": "1.0.4",
-  "displayName": "Selection History by Gemserk",
-  "description": "Selection history from http://blog.gemserk.com/2017/02/13/a-simple-selection-history-window-for-unity/ and https://github.com/acoppes/unity-history-window",
-  "unity": "2018.1",
-  "unityRelease": "1f1",
+  "name": "com.adamgryu.selectionhistoryupdated",
+  "version": "1.0.5",
+  "displayName": "Selection History Updated",
+  "description": "Forked from: https://github.com/acoppes/unity-history-window",
+  "unity": "2019.1",
   "dependencies": { },
   "keywords": [
     "ui",
@@ -13,8 +12,6 @@
     "history"
   ],
   "author": {
-    "name": "Ariel Coppes",
-    "email": "ariel.coppes@gmail.com",
-    "url": "https://blog.gemserk.com"
+    "name": "Ariel Coppes + adamgryu"
   }
 }
