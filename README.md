@@ -5,7 +5,7 @@ It is really useful when editing stuff and following a link to an object referen
 
 ![Alt text](screenshots/Screenshot.png?raw=true "New Look")
 
-This is a fork of [Unity Selection History Window](https://github.com/acoppes/unity-history-window) that updates the visual style to match Unity's. It also updates some outdated APIs and adds forward and backward buttons to the UI.
+This is a fork of [Unity Selection History Window](https://github.com/acoppes/unity-history-window) that updates the visual style to match Unity's default style. It also updates some outdated APIs and adds forward and backward buttons to the UI.
 
 # Features
 
