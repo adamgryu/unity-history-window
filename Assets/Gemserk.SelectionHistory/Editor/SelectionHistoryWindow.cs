@@ -35,7 +35,6 @@ namespace Gemserk {
         private static Color hierarchyElementTextColor => new Color(0.7f, 1.0f, 0.7f);
         private static Color selectedElementTextColor => EditorGUIUtility.isProSkin ? Color.white : Color.white;
         private static Color selectedElementBackgroundColor => EditorGUIUtility.isProSkin ? new Color(0.17f, 0.36f, 0.56f) : new Color(0.17f, 0.36f, 0.56f);
-        private static Color pinnedElementBackgroundColor => EditorGUIUtility.isProSkin ? new Color(0.1f, 0.1f, 0.1f, 0.7f) : new Color(0.1f, 0.1f, 0.1f, 0.1f);
         private static string iconPath => EditorGUIUtility.isProSkin ? "d_" : "";
 
         // Private Static Cached Fields
