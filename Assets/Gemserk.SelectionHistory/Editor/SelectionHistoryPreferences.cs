@@ -5,6 +5,7 @@ namespace Gemserk {
     public static class SelectionHistoryPreferences {
 
         private static bool prefsLoaded = false;
+
         private static int historySize;
         private static bool autoRemoveDeleted;
         private static bool allowDuplicates;
@@ -53,6 +54,7 @@ namespace Gemserk {
                     }
                 },
             };
+
             return provider;
         }
     }
