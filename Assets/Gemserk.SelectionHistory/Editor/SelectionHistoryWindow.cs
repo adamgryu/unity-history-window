@@ -26,15 +26,16 @@ namespace Gemserk {
         public static readonly string HistoryShowHierarchyObjectsPrefKey = "Gemserk.SelectionHistory.ShowHierarchyObjects";
         public static readonly string HistoryShowProjectViewObjectsPrefKey = "Gemserk.SelectionHistory.ShowProjectViewObjects";
         public static readonly string HistoryFavoritesPrefKey = "Gemserk.SelectionHistory.Favorites";
+        public static readonly string HistoryFavoritesFirstPrefKey = "Gemserk.SelectionHistory.FavoritesFirst";
 
         // Private Static Fields
         private static SelectionHistory selectionHistory = new SelectionHistory(); // Start with a dummy instance to avoid null-refs.
         private static readonly bool debugEnabled = false;
 
         // Private Static Helper Properies
-        private static Color hierarchyElementTextColor => new Color(0.7f, 1.0f, 0.7f);
-        private static Color selectedElementTextColor => EditorGUIUtility.isProSkin ? Color.white : Color.white;
-        private static Color selectedElementBackgroundColor => EditorGUIUtility.isProSkin ? new Color(0.17f, 0.36f, 0.56f) : new Color(0.17f, 0.36f, 0.56f);
+        private static Color hierarchyElementTextColor => new Color(0.8f, 1.0f, 0.8f);
+        private static Color selectedElementTextColor => EditorGUIUtility.isProSkin ? Color.white : Color.black;
+        private static Color selectedElementBackgroundColor => EditorGUIUtility.isProSkin ? new Color(0.17f, 0.36f, 0.56f) : Color.black * 0.14f;
         private static string iconPath => EditorGUIUtility.isProSkin ? "d_" : "";
 
         // Private Static Cached Fields
@@ -80,6 +81,7 @@ namespace Gemserk {
         private bool showHierarchyViewObjects;
         private bool showProjectViewObjects;
         private bool favoritesEnabled;
+        private bool favoritesFirst;
 
         // Private State
         private Vector2 historyScrollPosition;
@@ -144,6 +146,7 @@ namespace Gemserk {
                 showHierarchyViewObjects = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryShowHierarchyObjectsPrefKey, true);
                 showProjectViewObjects = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryShowProjectViewObjectsPrefKey, true);
                 favoritesEnabled = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryFavoritesPrefKey, true);
+                favoritesFirst = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryFavoritesFirstPrefKey, false);
                 shouldReloadPreferences = false;
             }
 
@@ -157,10 +160,13 @@ namespace Gemserk {
 
             // Draw the elements in a scroll view, favorites first.
             historyScrollPosition = EditorGUILayout.BeginScrollView(historyScrollPosition, GUILayout.ExpandHeight(true));
-            if (favoritesEnabled && selectionHistory.Favorites.Count > 0) {
+            if (favoritesFirst) {
+                DrawFavorites();
+                DrawHistory();
+            } else {
+                DrawHistory();
                 DrawFavorites();
             }
-            DrawHistory();
             EditorGUILayout.EndScrollView();
 
             // Draw a sidebar on the left to match the hierarchy view visually.
@@ -174,6 +180,10 @@ namespace Gemserk {
         }
 
         private void DrawFavorites() {
+            if (!favoritesEnabled || selectionHistory.Favorites.Count <= 0) {
+                return;
+            }
+
             var favorites = selectionHistory.Favorites;
             for (int i = 0; i < favorites.Count; i++) {
                 DrawElement(favorites[i]);
@@ -372,6 +382,4 @@ namespace Gemserk {
 
         #endregion
     }
-
-
 }

@@ -4,6 +4,11 @@ using UnityEditor;
 namespace Gemserk {
     public static class SelectionHistoryPreferences {
 
+        public enum PinnedOrder {
+            PinnedAtBottom = 0,
+            PinnedAtTop = 1,
+        }
+
         private static bool prefsLoaded = false;
 
         private static int historySize;
@@ -12,6 +17,7 @@ namespace Gemserk {
         private static bool showHierarchyObjects;
         private static bool showProjectViewObjects;
         private static bool drawFavorites;
+        private static PinnedOrder favoritesFirst;
 
         [SettingsProvider]
         public static SettingsProvider CreateSelectionHistorySettingsProvider() {
@@ -26,6 +32,7 @@ namespace Gemserk {
                         showHierarchyObjects = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryShowHierarchyObjectsPrefKey, true);
                         showProjectViewObjects = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryShowProjectViewObjectsPrefKey, true);
                         drawFavorites = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryFavoritesPrefKey, true);
+                        favoritesFirst = EditorPrefs.GetBool(SelectionHistoryWindow.HistoryFavoritesFirstPrefKey, false) ? PinnedOrder.PinnedAtTop : PinnedOrder.PinnedAtBottom;
                         prefsLoaded = true;
                     }
 
@@ -38,7 +45,8 @@ namespace Gemserk {
                     allowDuplicates = EditorGUILayout.Toggle("Allow Duplicated Entries", allowDuplicates);
                     showHierarchyObjects = EditorGUILayout.Toggle("Show HierarchyView Objects", showHierarchyObjects);
                     showProjectViewObjects = EditorGUILayout.Toggle("Show ProjectView Objects", showProjectViewObjects);
-                    drawFavorites = EditorGUILayout.Toggle("Favorites Enabled", drawFavorites);
+                    drawFavorites = EditorGUILayout.Toggle("Pinning Enabled", drawFavorites);
+                    favoritesFirst = (PinnedOrder)EditorGUILayout.EnumPopup("Pinned Order", favoritesFirst);
 
                     EditorGUI.indentLevel--;
 
@@ -49,6 +57,7 @@ namespace Gemserk {
                         EditorPrefs.SetBool(SelectionHistoryWindow.HistoryShowHierarchyObjectsPrefKey, showHierarchyObjects);
                         EditorPrefs.SetBool(SelectionHistoryWindow.HistoryShowProjectViewObjectsPrefKey, showProjectViewObjects);
                         EditorPrefs.SetBool(SelectionHistoryWindow.HistoryFavoritesPrefKey, drawFavorites);
+                        EditorPrefs.SetBool(SelectionHistoryWindow.HistoryFavoritesFirstPrefKey, favoritesFirst == PinnedOrder.PinnedAtTop ? true : false);
 
                         SelectionHistoryWindow.shouldReloadPreferences = true;
                     }
