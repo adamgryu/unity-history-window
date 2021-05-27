@@ -1,9 +1,9 @@
 {
-  "name": "com.adamgryu.selectionhistoryupdated",
-  "version": "1.0.5",
-  "displayName": "Selection History Updated",
-  "description": "Forked from: https://github.com/acoppes/unity-history-window",
-  "unity": "2019.1",
+  "name": "com.adamgryu.selectionhistoryrestyled",
+  "version": "1.1.0",
+  "displayName": "Selection History Restyled",
+  "description": "An editor tool that keep tracks of your selection history, so you can easily return to a previous selection.\n\nForked and restyled from: https://github.com/acoppes/unity-history-window",
+  "unity": "2019.4",
   "dependencies": { },
   "keywords": [
     "ui",
@@ -12,6 +12,6 @@
     "history"
   ],
   "author": {
-    "name": "Ariel Coppes + adamgryu"
+    "name": "Ariel Coppes (restyled by @adamgryu)"
   }
 }
