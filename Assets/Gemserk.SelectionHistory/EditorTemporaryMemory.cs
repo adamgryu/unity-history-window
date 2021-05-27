@@ -1,42 +1,39 @@
 using UnityEngine;
-using System.Collections.Generic;
 
-namespace Gemserk
-{
-	public class EditorTemporaryMemory : MonoBehaviour
-	{
-		static EditorTemporaryMemory instance;
+namespace Gemserk {
 
-		static HideFlags instanceHideFlags = HideFlags.DontSave | HideFlags.HideInHierarchy;
+    public class EditorTemporaryMemory : MonoBehaviour {
 
-		static void InitTemporaryMemory()
-		{
-			if (instance != null)
-				return;
+        static EditorTemporaryMemory instance;
 
-			var editorMemory = GameObject.Find ("~EditorTemporaryMemory");
+        static HideFlags instanceHideFlags = HideFlags.DontSave | HideFlags.HideInHierarchy;
 
-			if (editorMemory == null) {
-				editorMemory = new GameObject ("~EditorTemporaryMemory");
-				instance = editorMemory.AddComponent<EditorTemporaryMemory> ();
-			} else {
-				instance = editorMemory.GetComponent<EditorTemporaryMemory> ();
-				if (instance == null)
-					instance = editorMemory.AddComponent<EditorTemporaryMemory> ();
-			}
+        static void InitTemporaryMemory() {
+            if (instance != null)
+                return;
 
-			editorMemory.hideFlags = instanceHideFlags;
-		}
+            var editorMemory = GameObject.Find("~EditorTemporaryMemory");
 
-		public static EditorTemporaryMemory Instance {
-			get { 
-				InitTemporaryMemory ();
-				return instance;
-			}
-		}
+            if (editorMemory == null) {
+                editorMemory = new GameObject("~EditorTemporaryMemory");
+                instance = editorMemory.AddComponent<EditorTemporaryMemory>();
+            } else {
+                instance = editorMemory.GetComponent<EditorTemporaryMemory>();
+                if (instance == null)
+                    instance = editorMemory.AddComponent<EditorTemporaryMemory>();
+            }
 
-	    [SerializeField]
-	    public SelectionHistory selectionHistory = new SelectionHistory();
-	}
-	
+            editorMemory.hideFlags = instanceHideFlags;
+        }
+
+        public static EditorTemporaryMemory Instance {
+            get {
+                InitTemporaryMemory();
+                return instance;
+            }
+        }
+
+        [SerializeField]
+        public SelectionHistory selectionHistory = new SelectionHistory();
+    }
 }
