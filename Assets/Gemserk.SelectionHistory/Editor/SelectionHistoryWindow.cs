@@ -15,6 +15,8 @@ namespace Gemserk {
 
     public class SelectionHistoryWindow : EditorWindow, IHasCustomMenu {
 
+        #region Static Fields
+
         // Public Static Fields
         public const float LINE_HEIGHT = 16;
         public static bool shouldReloadPreferences = true;
@@ -47,6 +49,8 @@ namespace Gemserk {
         private static GUIStyle miniButtonStyle;
         private static GUILayoutOption lineHeight = GUILayout.Height(LINE_HEIGHT);
         private static GUILayoutOption minWidth = GUILayout.MinWidth(40);
+
+        #endregion
 
         #region Static Methods
 
@@ -124,6 +128,7 @@ namespace Gemserk {
             if (selectionHistory.IsSelected(selectionHistory.GetHistoryCount() - 1)) {
                 historyScrollPosition.y = float.MaxValue;
             }
+            // TODO: Calculate the scroll position, and set it for every selection.
             Repaint();
         }
 
@@ -158,7 +163,7 @@ namespace Gemserk {
                 selectionHistory.RemoveDuplicated();
             }
 
-            // Draw the elements in a scroll view, favorites first.
+            // Draw the elements in a scroll view.
             historyScrollPosition = EditorGUILayout.BeginScrollView(historyScrollPosition, GUILayout.ExpandHeight(true));
             if (favoritesFirst) {
                 DrawFavorites();
@@ -234,7 +239,7 @@ namespace Gemserk {
 
             // Draw the actual label for the element.
             if (elementObject == null) {
-                GUILayout.Label("Deleted", labelStyle, minWidth, lineHeight);
+                GUILayout.Label("Deleted", labelStyle, minWidth, lineHeight); // TODO: Indentation is broken here, but eh.
             } else {
                 bool hovered = Event.current.type == EventType.Repaint && elementRect.Contains(Event.current.mousePosition);
                 DrawElementHorizontalContent(elementObject, labelStyle, labelColor, hovered);
@@ -265,9 +270,10 @@ namespace Gemserk {
                 }
             }
 
+            // Left padding.
             GUILayout.Space(LINE_HEIGHT / 2f);
 
-            // Setup label content.
+            // Build label content.
             GUIContent labelContent = new GUIContent();
             labelContent.image = AssetPreview.GetMiniThumbnail(elementObject);
             labelContent.text = elementObject.name;
