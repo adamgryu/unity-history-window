@@ -94,6 +94,7 @@ namespace Gemserk {
             selectionHistory = EditorTemporaryMemory.Instance.selectionHistory;
             Selection.selectionChanged += OnSelectionChanged;
             wantsMouseMove = true;
+            shouldReloadPreferences = true;
         }
 
         private void OnDisable() {
